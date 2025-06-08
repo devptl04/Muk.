@@ -75,15 +75,14 @@ export default StyleSheet.create({
         backgroundColor: 'transparent',
         borderWidth: 1,
         borderColor: '#32CD32',
-        borderRadius: 5,
+        borderRadius: 6,
         height: 48,
         alignItems: 'center',
         justifyContent: 'center',
     },
     createAccountText: {
-        color: '#32CD32',
+        color: '#32BC32',
         fontSize: 16,
         fontWeight: 'bold',
-        borderRadius: 6
     },
 })

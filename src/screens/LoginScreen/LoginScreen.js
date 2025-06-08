@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Pressable, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './styles';
@@ -62,7 +62,7 @@ export default function LoginScreen({navigation}) {
                     style={styles.inputWrapper}
                     >
                     <TextInput
-                        style={styles.input}
+                        style={[styles.input]}
                         placeholder="E-mail"
                         placeholderTextColor="#cccccc"
                         value={email}
@@ -89,17 +89,26 @@ export default function LoginScreen({navigation}) {
                     />
                 </LinearGradient>
                 {/* Login button */}
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={onLoginPress}>
+                <Pressable
+                    onPress={onLoginPress}
+                    style={({ pressed }) => [
+                        styles.button,
+                        pressed && { 
+                            backgroundColor: 'black',
+                            borderWidth: 2,
+                            borderColor: '#32CD32', 
+                        }  
+                    ]}
+                >
                     <Text style={styles.buttonTitle}>Log in</Text>
-                </TouchableOpacity>
+                </Pressable>
                 
                 <TouchableOpacity onPress={onForgotPasswordPress} style={styles.forgotContainer}>
                     <Text style={styles.forgotText}>Forgot password?</Text>
                 </TouchableOpacity>
             </KeyboardAwareScrollView>
 
+            {/* add onpress styling */}
             <TouchableOpacity style={styles.createAccountButton} onPress={onFooterLinkPress}>
                 <Text style={styles.createAccountText}>Create New Account</Text>
             </TouchableOpacity>
