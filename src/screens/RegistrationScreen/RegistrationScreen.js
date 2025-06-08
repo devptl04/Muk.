@@ -127,7 +127,7 @@ export default function RegistrationScreen({navigation}) {
                 </LinearGradient>
                 {/* Register button */}
                 <Pressable
-                    onPress={onFooterLinkPress}
+                    onPress={onRegisterPress}
                     style={({ pressed }) => [
                         styles.button,
                         pressed && { 

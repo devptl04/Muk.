@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApp, getApps } from "firebase/app";
 import { initializeAuth, getReactNativePersistence } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const firebaseConfig = {
   apiKey: 'AIzaSyA_xsnsmH7uMrH5RIdpT1evJQfMhQerjo8',
   authDomain: 'muk-app-22a15.firebaseapp.com',
-  databaseURL: 'https://production-a9404.firebaseio.com',
+  databaseURL: 'https://muk-app-22a15-default-rtdb.firebaseio.com/',
   projectId: 'muk-app-22a15',
   storageBucket: 'muk-app-22a15.firebasestorage.app',
   messagingSenderId: '141513607923',
