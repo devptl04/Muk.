@@ -48,7 +48,7 @@ export default function LoginScreen({navigation}) {
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.title}>Muk.</Text>
-            <Text style={styles.sub}>welcome</Text>
+            <Text style={styles.sub}>welcome 🍕</Text>
             <KeyboardAwareScrollView
                 style={{ flex: 1, width: '100%' }}
                 contentContainerStyle={[styles.contentContainer, { alignItems: 'stretch' }]}
@@ -109,10 +109,24 @@ export default function LoginScreen({navigation}) {
             </KeyboardAwareScrollView>
 
             {/* add onpress styling */}
-            <TouchableOpacity style={styles.createAccountButton} onPress={onFooterLinkPress}>
-                <Text style={styles.createAccountText}>Create New Account</Text>
-            </TouchableOpacity>
-
+            <Pressable
+                onPress={onFooterLinkPress}
+                style={({ pressed }) => [
+                    styles.createAccountButton,
+                    pressed && styles.createAccountButtonPressed
+                ]}
+                >
+                {({ pressed }) => (
+                    <Text
+                    style={[
+                        styles.createAccountText,
+                        pressed && styles.createAccountTextPressed
+                    ]}
+                    >
+                    Create New Account
+                    </Text>
+                )}
+            </Pressable>
             <LoadingModal isVisible={isLoading} />
         </SafeAreaView>
     );

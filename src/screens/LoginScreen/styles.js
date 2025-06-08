@@ -65,6 +65,7 @@ export default StyleSheet.create({
 
     forgotText: {
         color: '#32CD32',
+        fontSize: 15,
     },
 
     createAccountButton: {
@@ -80,9 +81,18 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+
+    createAccountButtonPressed: {
+        backgroundColor: '#32CD32',
+    },
+
     createAccountText: {
-        color: '#32BC32',
+        color: '#32CD32',
         fontSize: 16,
         fontWeight: 'bold',
+    },
+
+    createAccountTextPressed: {
+        color: 'white',
     },
 })

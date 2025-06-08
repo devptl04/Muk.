@@ -3,44 +3,65 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'black',
     },
-    title: {
 
-    },
-    logo: {
-        flex: 1,
-        height: 120,
-        width: 90,
-        alignSelf: "center",
-        margin: 30
-    },
-    input: {
-        height: 48,
-        borderRadius: 5,
-        overflow: 'hidden',
-        backgroundColor: 'white',
-        marginTop: 10,
+    title: {
+        fontSize: 48,
+        fontWeight: 'bold',
+        color: '#32CD32',
         marginBottom: 10,
-        marginLeft: 30,
-        marginRight: 30,
-        paddingLeft: 16
+        marginTop: 100,
+        textAlign: 'center',
+        width: '100%',    
     },
+
+    sub: {
+        fontSize: 18,
+        color: 'white',
+        marginBottom: 20,
+        textAlign: 'center',  
+        width: '100%',
+    },
+
+    contentContainer: {
+        flexGrow: 1, 
+        alignItems: 'center',       // center horizontally
+        paddingHorizontal: 30,
+        width: '100%',  
+    },
+
+    inputWrapper: {
+        width: '100%',
+        borderRadius: 8,
+        padding: 2,            // thickness of the gradient border
+        marginVertical: 8,
+      },
+    
+    input: {
+        backgroundColor: 'black',
+        height: 48,
+        borderRadius: 6,       // slightly smaller than wrapper so the gradient shows
+        paddingHorizontal: 16,
+        color: 'white',
+    },
+    
     button: {
-        backgroundColor: '#788eec',
-        marginLeft: 30,
-        marginRight: 30,
+        backgroundColor: '#32CD32',
         marginTop: 20,
         height: 48,
-        borderRadius: 5,
+        borderRadius: 8,
         alignItems: "center",
         justifyContent: 'center'
     },
+
     buttonTitle: {
         color: 'white',
         fontSize: 16,
         fontWeight: "bold"
     },
+
     footerView: {
         flex: 1,
         alignItems: "center",
@@ -48,10 +69,10 @@ export default StyleSheet.create({
     },
     footerText: {
         fontSize: 16,
-        color: '#2e2e2d'
+        color: 'white'
     },
     footerLink: {
-        color: "#788eec",
+        color: "#32CD32",
         fontWeight: "bold",
         fontSize: 16
     }
