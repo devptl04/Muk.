@@ -3,10 +3,12 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './styles';
+import { LinearGradient } from 'expo-linear-gradient';
 import { auth, db } from '../../firebase/config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import LoadingModal from '../../utils/LoadingModal';  
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function LoginScreen({navigation}) {
     const [email, setEmail] = useState('')
@@ -16,6 +18,10 @@ export default function LoginScreen({navigation}) {
     const onFooterLinkPress = () => {
         navigation.navigate('Registration');
     }
+
+    const onForgotPasswordPress = () => {
+        navigation.navigate('ForgotPassword');  // your forgot screen
+      };
 
     const onLoginPress = async () => {
         setIsLoading(true);
@@ -40,27 +46,38 @@ export default function LoginScreen({navigation}) {
     }
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
+            <Text style={styles.title}>Muk.</Text>
+            <Text style={styles.sub}>welcome</Text>
             <KeyboardAwareScrollView
                 style={{ flex: 1, width: '100%' }}
-                keyboardShouldPersistTaps="always">
-                {/* App logo */}
-                <Image
-                    style={styles.logo}
-                    source={require('../../../assets/icon.png')}
-                />
+                contentContainerStyle={[styles.contentContainer, { alignItems: 'stretch' }]}
+                keyboardShouldPersistTaps="always"
+            >
                 {/* Email input field */}
-                <TextInput
-                    style={styles.input}
-                    placeholder='E-mail'
-                    placeholderTextColor="#aaaaaa"
-                    onChangeText={(text) => setEmail(text)}
-                    value={email}
-                    underlineColorAndroid="transparent"
-                    autoCapitalize="none"
-                />
+                <LinearGradient
+                    colors={['#FFFFFF', '#32CD32']}
+                    start={{ x: 1, y: 0 }}
+                    end={{ x: 0, y: 0 }}
+                    style={styles.inputWrapper}
+                    >
+                    <TextInput
+                        style={styles.input}
+                        placeholder="E-mail"
+                        placeholderTextColor="#cccccc"
+                        value={email}
+                        onChangeText={setEmail}
+                        autoCapitalize="none"
+                    />
+                </LinearGradient>
                 {/* Password input field */}
-                <TextInput
+                <LinearGradient
+                    colors={['#FFFFF1', '#32CD32']}
+                    start={{ x: 1, y: 0 }}
+                    end={{ x: 0, y: 0 }}
+                    style={styles.inputWrapper}
+                    >
+                    <TextInput
                     style={styles.input}
                     placeholderTextColor="#aaaaaa"
                     secureTextEntry
@@ -69,20 +86,26 @@ export default function LoginScreen({navigation}) {
                     value={password}
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
-                />
+                    />
+                </LinearGradient>
                 {/* Login button */}
                 <TouchableOpacity
                     style={styles.button}
                     onPress={onLoginPress}>
                     <Text style={styles.buttonTitle}>Log in</Text>
                 </TouchableOpacity>
-                {/* Footer link to navigate to the registration screen */}
-                <View style={styles.footerView}>
-                    <Text style={styles.footerText}>Don't have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Sign up</Text></Text>
-                </View>
+                
+                <TouchableOpacity onPress={onForgotPasswordPress} style={styles.forgotContainer}>
+                    <Text style={styles.forgotText}>Forgot password?</Text>
+                </TouchableOpacity>
             </KeyboardAwareScrollView>
+
+            <TouchableOpacity style={styles.createAccountButton} onPress={onFooterLinkPress}>
+                <Text style={styles.createAccountText}>Create New Account</Text>
+            </TouchableOpacity>
+
             <LoadingModal isVisible={isLoading} />
-        </View>
+        </SafeAreaView>
     );
 }
 

@@ -7,6 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { LoginScreen, HomeScreen, RegistrationScreen } from './src/screens';
 import LoadScreen from './src/screens/LoadScreen/LoadScreen';
 
+
 import { decode, encode } from 'base-64';
 if (!global.btoa) { global.btoa = encode }
 if (!global.atob) { global.atob = decode }
@@ -75,7 +76,7 @@ export default function App() {
             </Stack.Screen>
         ) : (
           <>
-            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}}/>
             <Stack.Screen name="Registration" component={RegistrationScreen} />
           </>
         )}

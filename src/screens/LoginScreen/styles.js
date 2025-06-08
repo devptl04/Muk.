@@ -3,36 +3,52 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'black',
     },
-    title: {
 
+    contentContainer: {
+        flexGrow: 1, 
+        alignItems: 'center',       // center horizontally
+        paddingHorizontal: 30,
+        width: '100%',  
     },
-    logo: {
-        flex: 1,
-        height: 120,
-        width: 90,
-        alignSelf: "center",
-        margin: 30
-    },
-    input: {
-        height: 48,
-        borderRadius: 5,
-        overflow: 'hidden',
-        backgroundColor: 'white',
-        marginTop: 10,
+
+    title: {
+        fontSize: 48,
+        fontWeight: 'bold',
+        color: '#32CD32',
         marginBottom: 10,
-        marginLeft: 30,
-        marginRight: 30,
-        paddingLeft: 16
+        marginTop: 120,
     },
+
+    sub: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'white',
+        marginBottom: 30
+    },
+
+    inputWrapper: {
+        width: '100%',
+        borderRadius: 8,
+        padding: 2,            // thickness of the gradient border
+        marginVertical: 10,
+      },
+    
+    input: {
+        backgroundColor: 'black',
+        height: 48,
+        borderRadius: 6,       // slightly smaller than wrapper so the gradient shows
+        paddingHorizontal: 16,
+        color: 'white',
+    },
+    
     button: {
-        backgroundColor: '#788eec',
-        marginLeft: 30,
-        marginRight: 30,
+        backgroundColor: '#32CD32',
         marginTop: 20,
         height: 48,
-        borderRadius: 5,
+        borderRadius: 8,
         alignItems: "center",
         justifyContent: 'center'
     },
@@ -41,18 +57,33 @@ export default StyleSheet.create({
         fontSize: 16,
         fontWeight: "bold"
     },
-    footerView: {
-        flex: 1,
-        alignItems: "center",
-        marginTop: 20
+
+    forgotContainer: {
+        marginTop: 20,
+        alignItems: 'center',
+      },
+
+    forgotText: {
+        color: '#32CD32',
     },
-    footerText: {
+
+    createAccountButton: {
+        position: 'absolute',
+        bottom: 30,
+        left: 30,
+        right: 30,
+        backgroundColor: 'transparent',
+        borderWidth: 1,
+        borderColor: '#32CD32',
+        borderRadius: 5,
+        height: 48,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    createAccountText: {
+        color: '#32CD32',
         fontSize: 16,
-        color: '#2e2e2d'
+        fontWeight: 'bold',
+        borderRadius: 6
     },
-    footerLink: {
-        color: "#788eec",
-        fontWeight: "bold",
-        fontSize: 16
-    }
 })
